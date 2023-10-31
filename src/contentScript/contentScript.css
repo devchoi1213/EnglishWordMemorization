@@ -1,0 +1,10 @@
+#app div {
+    height: 100vh;
+    width: 340px;
+    background: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999999999996!important;
+    box-shadow: #0006 -1px 3px 60px;
+}
