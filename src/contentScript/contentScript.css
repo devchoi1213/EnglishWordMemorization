@@ -1,10 +1,55 @@
-#app div {
-    height: 100vh;
-    width: 340px;
-    background: white;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 9999999999996!important;
+#voca-mastery > .voca-mastery-wrapper {
     box-shadow: #0006 -1px 3px 60px;
+    position: fixed;
+    top: 0;
+    opacity: .99;
+    left: initial;
+    right: -580px;
+    display: block;
+    width: 340px;
+    min-width: auto;
+    height: 100vh;
+    z-index: 9999999999996!important;
+    background: white;
+    border: none;
+    box-sizing: border-box;
+    transition: 1s;
+}
+
+#voca-mastery > .voca-mastery-wrapper.show {
+    right: 0;
+    transition: 1s;
+}
+
+#voca-mastery > .voca-mastery-wrapper.sidebar-show {
+    width: 580px!important;
+}
+
+#voca-mastery > .voca-mastery-wrapper > .voca-mastery-app-container {
+    display: flex;
+    background: #f7f7f7;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+#voca-mastery > .voca-mastery-wrapper > .voca-mastery-app-container > .voca-mastery-app-category-container {
+    left: 0;
+    width: 240px;
+    margin-left: 0;
+    transition: all 1s ease;
+    background-color: darkgray;
+}
+
+#voca-mastery > .voca-mastery-wrapper > .voca-mastery-app-container > .voca-mastery-app-category-container.sidebar-hidden {
+    margin-left: -240px!important;
+}
+
+#voca-mastery > .voca-mastery-wrapper > .voca-mastery-app-container > .voca-mastery-app-content-container {
+    flex-grow: 1;
+    min-width: calc(100% - 240px);
+    transition: all 1s ease;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: flex-start;
 }

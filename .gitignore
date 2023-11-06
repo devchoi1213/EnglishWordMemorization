@@ -1,6 +1,7 @@
 .idea
 extension/*
 !extension/manifest.json
-webpack-demo
 node_modules
 dist
+server
+client

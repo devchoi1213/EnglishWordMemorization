@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
+  "name": "Voca Mastery",
+  "description": "",
   "version": "1.0.0",
   "icons": {
     "16": "./icon.jpg",
@@ -9,20 +9,59 @@
     "128": "./icon.jpg"
   },
   "action": {
-    "default_title": "Click Me",
-    "default_popup": "popup.html"
+    "default_title": "Click Me"
   },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://*.localhost/*"
+    ]
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "permissions": [
     "tabs",
     "bookmarks",
-    "storage"
+    "storage",
+    "identity",
+    "cookies"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["contentScript.js"]
-  }],
-  "options_page": "options.html"
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://accounts.google.com/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "options_page": "options.html",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoVk5bCWpAc9b3381a8kajRGcfkBzJbp/d11NiDHzhap7hHHmBAbyHq2UTB/lOGu2hfp211A0w/v/5zdQgOKdxKwtNU1Xtn2LPR+biSRfPLBuxW9wlk4mek75NO+F2kkWqOTtIWGxSVDtIybw6VzC6jbGySw97hGS7Xxd+ETV9aF620INxhtqIgr8daRZuyM5ZSUHkcKkxseYu/7nMsYzCW9O1ftxreAAF01C3E+8D3RxnW7g22KlNOSstYFZC0KIJ3d++pYWbQ+TAgt+ZTPpe/MUvMcEmHg2WXxso2gVIB8pIxRWLRpgOz6CIJe7FBZV0Bv+qyax7Nh4HVOUrZIchQIDAQAB",
+  "oauth2": {
+    "client_id": "1048857633719-knlkdri3pb8k4a5q60k504e36mm8nnt7.apps.googleusercontent.com",
+    "scopes": [
+      "openid",
+      "email",
+      "profile",
+      "https://www.googleapis.com/auth/contacts.readonly",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  }
 }

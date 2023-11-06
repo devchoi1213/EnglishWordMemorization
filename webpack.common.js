@@ -46,6 +46,15 @@ module.exports = {
 				},
 			],
 		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from:  'src/assets/images',
+					to:    'images',
+					force: true,
+				},
+			],
+		}),
 		...getHtmlPlugins([
 			'popup',
 			'options',
@@ -66,34 +75,31 @@ module.exports = {
 				return chunk.name !== 'contentScript';
 			}
 		},
-		// splitChunks: {
-		// 	chunks: "all"
-		// }
 	},
-	devServer: {
-		/** "port"
-		 * port of dev server
-		 */
-		port: "9500",
-		/** "static"
-		 * This property tells Webpack what static file it should serve
-		 */
-		static: ["./static"],
-		/** "open"
-		 * opens the browser after server is successfully started
-		 */
-		open: true,
-		/** "hot"
-		 * enabling and disabling HMR. takes "true", "false" and "only".
-		 * "only" is used if enable Hot Module Replacement without page
-		 * refresh as a fallback in case of build failures
-		 */
-		hot: true ,
-		/** "liveReload"
-		 * disable live reload on the browser. "hot" must be set to false for this to work
-		 */
-		liveReload: true
-	},
+	// devServer: {
+	// 	/** "port"
+	// 	 * port of dev server
+	// 	 */
+	// 	port: "9500",
+	// 	/** "static"
+	// 	 * This property tells Webpack what static file it should serve
+	// 	 */
+	// 	static: ["./static"],
+	// 	/** "open"
+	// 	 * opens the browser after server is successfully started
+	// 	 */
+	// 	open: true,
+	// 	/** "hot"
+	// 	 * enabling and disabling HMR. takes "true", "false" and "only".
+	// 	 * "only" is used if enable Hot Module Replacement without page
+	// 	 * refresh as a fallback in case of build failures
+	// 	 */
+	// 	hot: true ,
+	// 	/** "liveReload"
+	// 	 * disable live reload on the browser. "hot" must be set to false for this to work
+	// 	 */
+	// 	liveReload: true
+	// },
 }
 
 function getHtmlPlugins(chunks) {
