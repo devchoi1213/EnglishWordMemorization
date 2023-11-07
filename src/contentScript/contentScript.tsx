@@ -65,6 +65,7 @@ function contentScript() {
 	useEffect(() => {
 		const handleMessage = (request, sender, sendResponse) => {
 			setIsExtensionOpened(!isExtensionOpened);
+			return true;
 		}
 		
 		// Register the listener

@@ -2,13 +2,11 @@
 let message = { greeting: "hello from background" };
 
 chrome.action.onClicked.addListener((tab) => {
-	// Perform some action when the icon is clicked
-	console.log('Extension icon clicked!');
-	console.log('tab: ', tab);
-	
 	chrome.tabs.sendMessage(tab.id, message, function(response) {
 		console.log("Response from content script:", response);
+		return true;
 	});
+	return true;
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -35,9 +33,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			console.log('id_token: ', id_token);
 			
 			sendResponse(id_token);
+			return true;
 		})();
 		return true;
 	}
+	return true;
 });
 
 function extractIdToken(redirect_url) {
